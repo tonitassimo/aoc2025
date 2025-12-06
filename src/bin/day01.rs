@@ -1,10 +1,11 @@
-use aoc2025::day01;
+use aoc2025::day01::*;
 
 fn main() {
     let commands = include_str!("../../input/day01.txt")
         .lines()
-        .map(|line| line.parse::<day01::Command>().unwrap())
-        .collect::<Vec<_>>();
+        .map(|line: &str| line.parse::<Command>().unwrap());
 
-    println!("{:#?}", commands);
+    let result = State::walk(commands);
+
+    println!("{:#?}", result);
 }
