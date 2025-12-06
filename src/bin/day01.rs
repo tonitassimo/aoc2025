@@ -1,6 +1,10 @@
 use aoc2025::day01;
 
 fn main() {
-    let model = day01::Model { id: 12 };
-    println!("{:?}", model);
+    let commands = include_str!("../../input/day01.txt")
+        .lines()
+        .map(|line| line.parse::<day01::Command>().unwrap())
+        .collect::<Vec<_>>();
+
+    println!("{:#?}", commands);
 }
